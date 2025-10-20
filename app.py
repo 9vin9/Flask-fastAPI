@@ -1,13 +1,24 @@
 from flask import Flask,url_for
 app = Flask(__name__)
 
-# 기본 홈페이지 경로
+# # 홈페이지 경로 /home으로 변경
+# @app.route('/home')
+# def index():
+#     return "홈페이지에 오신 것을 환영합니다!"
+
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return f'User {username}'
+
+@app.route('/post/<year>/<month>/<day>')
+def show_post(year, month, day):  
+    return f'Post for {year}/{month}/{day}'
+
 @app.route('/')
 def index():
-    return "홈페이지에 오신 것을 환영합니다!"
+    user_url = url_for('show_user_profile', username='John')
+    post_url = url_for('show_post', year='2025', month='10', day='01')
+    return f'User URL: {user_url}<br>Post URL: {post_url}'
 
-# 사용자 정보 페이지 경로
-@app.route('/user/<username>')
-def profile(username):
-    # url_for()를 사용하여 'index' 뷰 함수의 USRL을 생성
-    return f"{username}님의 프로필 페이지입니다.    홈으로 가기: {url_for('index')}"
+# test: 1.terminal -> flask run
+#       2. browser -> http://127.0.0.1:5000/
