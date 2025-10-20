@@ -37,4 +37,3 @@ def https():
 #      3. http://127.0.0.1:5000/static-example -> 정적 파일 경로 반환
 #      4. http://127.0.0.1:5000/absolute -> 절대 URL 반환
 #      5. http://127.0.0.1:5000/https -> HTTPS 절대 URL 반환
-
