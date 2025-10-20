@@ -4,6 +4,28 @@
     <title>Hello</title>
 </head>
 <body>
+{% if name %}    
     <h1>Hello, {{ name }}!</h1>
+{% else %}
+    <h1>Hello, Guest!</h1>
+{% endif %}
+<!-- Jinja2 필터 사용 예시 -->
+<p> {{user_name|capitalize }}</p>   <!--이름의 첫 글자만 대문자로 변환--> 
+<p>{{  story|truncate(100)}}</p>    <!--스토리 내용을 100자까지만 표시-->
+<p>{{ timestamp|date("Y-m-d H:i")}}</p>  <!--타임스탬프를 지정된 형식으로 표시-->
+
 </body>
 </html>
+
+
+<!---  
+    safe: HTML 태그를 이스케이프하지 않고 렌더링
+    capitalize: 문자열의 첫 글자만 대문자로 변환
+    lower: 모든 문자를 소문자로 변환
+    upper: 모든 문자를 대문자로 변환
+    title: 각 단어의 첫 글자를 대문자로 변환
+    trim: 문자열의 앞뒤 공백 제거
+    truncate(n): 문자열을 n자까지 잘라내고 "..." 추가
+    date(format): 날짜/시간 객체를 지정된 형식의 문자열로 변환
+    date: datetime 객체를 로컬 날짜/시간 문자열로 변환
+--->
