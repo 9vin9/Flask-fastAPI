@@ -1,13 +1,13 @@
-from flask import Flask,request
+from flask import Flask,url_for
 app = Flask(__name__)
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        return "Logging in..."
-    else:
-        return "Login Form"
-    
-#test: 1. Send a GET request to /login and verify the response is "Login Form".
-#       terminal command: curl -X GET http://127.0.0.1:5000/login
-#test: 2. Send a POST request to /login and verify the response is "Logging in...".
+# 기본 홈페이지 경로
+@app.route('/')
+def index():
+    return "홈페이지에 오신 것을 환영합니다!"
+
+# 사용자 정보 페이지 경로
+@app.route('/user/<username>')
+def profile(username):
+    # url_for()를 사용하여 'index' 뷰 함수의 USRL을 생성
+    return f"{username}님의 프로필 페이지입니다.    홈으로 가기: {url_for('index')}"
