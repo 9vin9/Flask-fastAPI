@@ -1,0 +1,17 @@
+<!-- templates/about.html -->
+ <!-- 
+    'extends' tag를 사용하여 'base.html'을 상속 받는다고 선언
+    'about.html'이 base.html의 블록을 재정의할 수 있음을 의미
+ -->
+{% extends "base.html" %}
+{% block pagetitle %} 
+About - It's mine
+{% endblock pagetitle %}
+
+<!-- 'maincontetn' 블록을 재정의하여 '우리에 대해서' 섹션추가-->
+<!-- 'base.html'에 정의된 기본 구조 내에 새로운 내용을 삽입 할 수 있음-->
+{% block maincontent %} 
+    <h2>우리에 대해서</h2>
+    <p>이 웹사이트는 나만의 공간으로, 다양한 주제에 대한 글과 정보를 공유합니다.</p>
+    <p>여기에서는 나의 관심사, 프로젝트, 그리고 일상에 대한 이야기를 찾아볼 수 있습니다.</p>
+{% endblock maincontent %}
